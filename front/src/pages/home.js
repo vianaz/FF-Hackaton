@@ -4,6 +4,8 @@ export const Container = styled.div`
   width: 100%;
   background-color: red;
   min-height: 100vh;
+
+  padding-bottom: 75px;
 `;
 
 export const Content = styled.section`

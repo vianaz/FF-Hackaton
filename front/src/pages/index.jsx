@@ -1,6 +1,7 @@
 import { FiMapPin, FiSearch } from 'react-icons/fi';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Service from '../components/Service';
 
 import {
@@ -42,6 +43,8 @@ export default function Home() {
           <Service type="lojas" />
         </Services>
       </Content>
+
+      <Footer />
     </Container>
   );
 }
