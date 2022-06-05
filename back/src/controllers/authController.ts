@@ -24,20 +24,22 @@ export async function signIn(req: Request, res: Response) {
         tokenGen,
       ]);
 
-      res.send({ token: tokenGen });
+      res.send({ id: userDatas.id, token: tokenGen });
     }
+    res.sendStatus(400);
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
   }
 }
 export async function signUp(req: Request, res: Response) {
-  const { email, password, city, street, zipCode, complement } = req.body;
+  const { email, password, city, street, zipCode, complement, name } = req.body;
+  console.log(req.body);
   const passwordHash = bcrypt.hashSync(password, 10);
   const signUpSchema = joi.object({
     email: joi.string().email().required(),
     password: joi.string().min(1).required(),
-    nome: joi.string().required(),
+    name: joi.string().required(),
     city: joi.string().required(),
     street: joi.string().required(),
     zipCode: joi.string().required(),
@@ -51,15 +53,15 @@ export async function signUp(req: Request, res: Response) {
   }
   try {
     const responseUserData = await db.query(
-      `INSERT INTO "users" (email, password) VALUES ($1, $2) RETURNING id`,
-      [email, passwordHash],
+      `INSERT INTO "users" (name, email, password) VALUES ($1, $2, $3) RETURNING id`,
+      [name, email, passwordHash],
     );
     const { id } = responseUserData.rows[0];
     await db.query(
       `INSERT INTO "adresses" ("userId", city, street, "zipCode", complement) VALUES ($1, $2, $3, $4, $5)`,
       [id, city, street, zipCode, complement],
     );
-    res.status(201).send(responseUserData.rows);
+    res.status(201).send('');
   } catch (error) {
     console.log(error);
     res.status(400).send('');
