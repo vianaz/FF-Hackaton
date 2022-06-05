@@ -1,18 +1,20 @@
 import Maintenance from '../Maintenance';
 
-import { Container, LastMaintenance } from './styles';
+import { Container, LastMaintenance, BikeName, Distance } from './styles';
 
 export default function UserBike({ name, image, distance }) {
   return (
     <Container>
-      <span>{name}</span>
-
       <img src={image} alt="" />
 
-      <span>{distance} km rodados</span>
+      <BikeName>{name}</BikeName>
+
+      <Distance>
+        <span>Distância rodada</span> <span>{distance} km</span>
+      </Distance>
 
       <LastMaintenance>
-        <span>últimos serviços</span>
+        <span>Últimos serviços</span>
         <Maintenance />
         <Maintenance />
       </LastMaintenance>
