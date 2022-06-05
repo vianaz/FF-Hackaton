@@ -1,5 +1,6 @@
 import { FiMapPin, FiSearch } from 'react-icons/fi';
 
+import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Service from '../components/Service';
@@ -23,7 +24,6 @@ export default function Home() {
   return (
     <Container>
       <Header />
-
       <Content>
         <Heading>Encontre os melhores serviços para sua bike</Heading>
 
