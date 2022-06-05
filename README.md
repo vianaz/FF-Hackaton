@@ -16,7 +16,7 @@ so that it is always up to date.
 First of all, and of course, you have to create your brand new BiCare accountt. Once that minor step
 is solved, you will have a free trial access - or, if you will, you can just pay the whole pass already! 😀
 
-[Our login screen](https://i.imgur.com/B7ISFYL.png)
+![Our login screen](https://i.imgur.com/B7ISFYL.png)
 
 When it's all set and done, you can now access the main page - here, you can see everything our application
 has to offer you. 🥰
