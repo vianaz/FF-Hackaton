@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 import { Container, Footer } from './styles';
 
 import { GoGear } from 'react-icons/go';
@@ -18,19 +19,27 @@ export default function Service({ type }) {
     }
   }
 
+  function getLink() {
+    switch (type) {
+      case 'mecânico': return '/mechanical';
+      case 'seguros': return '/warranty';
+      case 'gps': return '/gps';
+      case 'lojas': return '/store';
+      default: console.log('ue');
+    }
+  }
+
   return (
-    <a
-      href="https://www.google.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Button type={type}>
-        <span>{type.toUpperCase()}</span>
+    <StyledLink>
+      <Link href={getLink()}>
+        <Button type={type}>
+          <span>{type.toUpperCase()}</span>
 
-        {getIcon()}
+          {getIcon()}
 
-      </Button>
-    </a>
+        </Button>
+      </Link>
+    </StyledLink>
   );
 }
 
@@ -38,7 +47,7 @@ const Button = styled.div`
   width: 130px;
   height: 146px;
   border-radius: 10px;
-  background-color: ${props => props.type === 'gps' ? "#DEDEDE" :"#232435"};
+  background-color: ${props => props.type === 'gps' ? "#DEDEDE" : "#232435"};
 
   display: flex;
   flex-direction: column;
@@ -48,3 +57,12 @@ const Button = styled.div`
   color: white;
   font-size: 16px;
 `
+
+const StyledLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+`;
