@@ -15,9 +15,10 @@ export default function FormSignUp(){
         city:"",
         complement:"",
         zipCode:"",
+        phone:"",
     });
 
-    const { name, email, password, street, city, complement, zipCode } = userData;
+    const { name, email, password, street, city, complement, zipCode,phone } = userData;
 
     function submitData(event){
         event.preventDefault();
@@ -31,6 +32,7 @@ export default function FormSignUp(){
             city,
             complement,
             zipCode,
+            phone,
         });
         promise
             .then(response=>{
@@ -46,6 +48,7 @@ export default function FormSignUp(){
                     city:"",
                     complement:"",
                     zipCode:"",
+                    phone:"",
                 })
             });
     }
@@ -105,6 +108,14 @@ export default function FormSignUp(){
                     placeholder="CEP"
                     value={zipCode}
                     onChange={e=>setUserData({...userData,zipCode:e.target.value})}
+                    required
+                    autoComplete="on"
+                />
+                <Input
+                    type="text"
+                    placeholder="Telefone"
+                    value={phone}
+                    onChange={e=>setUserData({...userData,phone:e.target.value})}
                     required
                     autoComplete="on"
                 />

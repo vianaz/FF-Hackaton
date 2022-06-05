@@ -5,7 +5,7 @@ const StyledLink = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: green;
+    color: #4F4F4F;
     margin-top:20px;
 `;
 

@@ -24,12 +24,9 @@ export default function FormLogin() {
 
     promise
       .then((response) => {
-        const {
-          data: { id, token },
-        } = response;
-        const objUserData = {id, token};
-        localStorage.setItem('userData', JSON.stringify(objUserData));
-        console.log(localStorage);
+        const {data} =response;
+        const id = data.id;
+        localStorage.setItem("id",id);
         router.push('/');
       })
       .catch((err) => {
