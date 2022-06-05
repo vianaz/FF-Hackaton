@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import StyledLink from "../shared/StyledLink";
 import Link from "next/link";
 
 export default function LinkSignUp(){
@@ -11,11 +11,3 @@ export default function LinkSignUp(){
     );
 }
 
-const StyledLink = styled.div`
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: green;
-    margin-top:20px;
-`;
