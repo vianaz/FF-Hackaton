@@ -4,6 +4,9 @@ export const Container = styled.header`
   background-color: #fff;
   width: 100%;
   padding: 1rem;
+  padding-left: 32px;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   display: flex;
   align-items: center;
@@ -21,8 +24,8 @@ export const LogoTitle = styled.h1`
 `;
 
 export const Profile = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background-color: aquamarine;
 
