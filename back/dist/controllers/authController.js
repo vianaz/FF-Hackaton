@@ -7,7 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import joi from 'joi';
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 import db from '../db.js';
@@ -24,43 +23,34 @@ export function signIn(req, res) {
                     userDatas.id,
                     tokenGen,
                 ]);
-                res.send({ token: tokenGen });
+                res.send({ id: userDatas.id, token: tokenGen });
+                return;
             }
+            res.sendStatus(400);
+            return;
         }
         catch (error) {
             console.log(error);
             res.sendStatus(400);
+            return;
         }
     });
 }
 export function signUp(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { email, password, city, street, zipCode, complement } = req.body;
+        const { email, password, city, street, zipCode, complement, name } = req.body;
         const passwordHash = bcrypt.hashSync(password, 10);
-        const signUpSchema = joi.object({
-            email: joi.string().email().required(),
-            password: joi.string().min(1).required(),
-            nome: joi.string().required(),
-            city: joi.string().required(),
-            street: joi.string().required(),
-            zipCode: joi.string().required(),
-            complement: joi.string(),
-        });
-        const { error } = signUpSchema.validate(req.body);
-        if (error) {
-            console.log(error);
-            res.sendStatus(400);
-            return;
-        }
         try {
-            const responseUserData = yield db.query(`INSERT INTO "users" (email, password) VALUES ($1, $2) RETURNING id`, [email, passwordHash]);
+            const responseUserData = yield db.query(`INSERT INTO "users" (name, email, password) VALUES ($1, $2, $3) RETURNING id`, [name, email, passwordHash]);
             const { id } = responseUserData.rows[0];
             yield db.query(`INSERT INTO "adresses" ("userId", city, street, "zipCode", complement) VALUES ($1, $2, $3, $4, $5)`, [id, city, street, zipCode, complement]);
-            res.status(201).send(responseUserData.rows);
+            res.status(201).send('');
+            return;
         }
         catch (error) {
             console.log(error);
             res.status(400).send('');
+            return;
         }
     });
 }
