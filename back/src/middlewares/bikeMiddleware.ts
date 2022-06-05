@@ -8,6 +8,7 @@ export default function bikeMiddleware(
 ) {
   const bikeSquema = joi.object({
     userId: joi.number().required(),
+    name: joi.string().required(),
     image: joi.string(),
     distance: joi.number(),
   });

@@ -38,18 +38,22 @@ export function signIn(req, res) {
 }
 export function signUp(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { email, password, city, street, zipCode, complement, name } = req.body;
+        const { email, password, phone, city, street, zipCode, complement, name } = req.body;
         const passwordHash = bcrypt.hashSync(password, 10);
         try {
-            const responseUserData = yield db.query(`INSERT INTO "users" (name, email, password) VALUES ($1, $2, $3) RETURNING id`, [name, email, passwordHash]);
+            const responseUserData = yield db.query(`INSERT INTO "users" (name, phone, email, password) VALUES ($1, $2, $3, $4) RETURNING id`, [name, phone, email, passwordHash]);
             const { id } = responseUserData.rows[0];
-            yield db.query(`INSERT INTO "adresses" ("userId", city, street, "zipCode", complement) VALUES ($1, $2, $3, $4, $5)`, [id, city, street, zipCode, complement]);
-            res.status(201).send('');
+            yield db.query(`INSERT INTO "adresses" ("userId", city, adress, "postalCode", complement) VALUES ($1, $2, $3, $4, $5)`, [id, city, street, zipCode, complement]);
+            yield db.query(`INSERT INTO wallet ("userId", "value") VALUES ($1, $2)`, [
+                id,
+                250,
+            ]);
+            res.sendStatus(201);
             return;
         }
         catch (error) {
             console.log(error);
-            res.status(400).send('');
+            res.sendStatus(400);
             return;
         }
     });

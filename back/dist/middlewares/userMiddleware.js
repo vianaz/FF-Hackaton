@@ -4,6 +4,7 @@ export default function userMiddleware(req, res, next) {
         email: joi.string().email().required(),
         password: joi.string().min(1).required(),
         name: joi.string().required(),
+        phone: joi.string().required(),
         city: joi.string().required(),
         street: joi.string().required(),
         zipCode: joi.string().required(),

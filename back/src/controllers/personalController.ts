@@ -6,30 +6,30 @@ export async function getPersonalInfo(req: Request, res: Response) {
   try {
     const personalData = await db.query(
       `
-    SELECT users.name, 
-    json_build_object(
-        'city',adresses.city , 
-        'street', adresses.street, 
-        'zipCode', adresses."zipCode", 
-        'complement', adresses.complement) AS adress, 
-    json_build_object(
-            'number', card.number, 
-            'validity',card.validity, 
-            'cvv', card.cvv) AS "cardInfo" 
-    FROM users
-    JOIN adresses
-    ON adresses."userId" = $1
-    JOIN "creditCards" AS card
-    ON card."userId" = $1
-    WHERE users.id = $1`,
+      SELECT users.name, users.email, users.phone,
+      json_build_object(
+          'city',adresses.city , 
+          'adress', adresses.adress, 
+          'postalCode', adresses."postalCode", 
+          'complement', adresses.complement) AS address
+      FROM users
+      JOIN adresses
+      ON adresses."userId" = $1 
+      WHERE users.id = $1`,
       [id],
     );
-    res.send(personalData.rows);
-    return
+    const transitionsData = await db.query(`
+      SELECT transitions."date", transitions."value", transitions."description" FROM transitions 
+      JOIN users
+      ON users."id" = 2
+      WHERE transitions."userId" = users."id"
+    `);
+    res.send({ ...personalData.rows, transitions: transitionsData.rows });
+    return;
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
-    return
+    return;
   }
 }
 
@@ -38,10 +38,10 @@ export async function putPersonalInfo(req: Request, res: Response) {
   const { email, password, city, street, zipCode, complement, name } = req.body;
   try {
     await db.query(`UPDATE users SET `);
-    return
+    return;
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
-    return
+    return;
   }
 }

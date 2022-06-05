@@ -9,20 +9,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import db from '../db.js';
 export function getBikeInfo(req, res) {
+    var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
         const { id } = req.params;
         try {
-            const bikesData = yield db.query(`SELECT bikes.id, bikes.image, bikes.number FROM bikes WHERE "userId" = $1`, [id]);
-            res.send(bikesData.rows);
+            let bikeData = yield db.query(`SELECT bikes."id", bikes."name", bikes."image", bikes."distance" 
+      FROM bikes 
+      WHERE "userId" = $1
+      `, [id]);
+            const maintenancesData = yield db.query(`SELECT "id", "day", "description" FROM maintenances WHERE "bikeId" = $1`, [(_a = bikeData.rows[0]) === null || _a === void 0 ? void 0 : _a.id]);
+            const newData = bikeData.rows.map((element, i) => {
+                return Object.assign(Object.assign({}, element), { maintenances: maintenancesData.rows });
+            });
+            res.send(((_b = bikeData.rows[0]) === null || _b === void 0 ? void 0 : _b.id) ? newData : []);
+            return;
         }
-        catch (error) { }
+        catch (error) {
+            console.log(error);
+            res.sendStatus(400);
+            return;
+        }
     });
 }
 export function postBikes(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { userId, image, distance } = req.body;
+        const { userId, name, image, distance } = req.body;
         try {
-            yield db.query(`INSERT INTO bikes ("userId", "image", "distance") VALUES ($1, $2, $3)`, [userId, image, distance]);
+            yield db.query(`INSERT INTO bikes ("userId", "name", "image", "distance") VALUES ($1, $2, $3, $4)`, [userId, name, image, distance]);
             res.sendStatus(201);
         }
         catch (error) {
@@ -35,11 +48,7 @@ export function putBikes(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { userId, image, distance } = req.body;
         try {
-            yield db.query(`UPDATE bikes SET image = $1, distance = $2 WHERE userId = $3`, [
-                image,
-                distance,
-                userId,
-            ]);
+            yield db.query(`UPDATE bikes SET image = $1, distance = $2 WHERE userId = $3`, [image, distance, userId]);
             res.sendStatus(200);
             return;
         }

@@ -2,6 +2,7 @@ import joi from 'joi';
 export default function bikeMiddleware(req, res, next) {
     const bikeSquema = joi.object({
         userId: joi.number().required(),
+        name: joi.string().required(),
         image: joi.string(),
         distance: joi.number(),
     });

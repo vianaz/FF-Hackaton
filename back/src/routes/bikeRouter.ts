@@ -10,7 +10,7 @@ import bikeMiddleware from '../middlewares/bikeMiddleware.js';
 const bikesRouter = Router();
 
 bikesRouter.get('/bikes/:id', getBikeInfo);
-bikesRouter.put('/bikes', bikeMiddleware, postBikes);
+bikesRouter.post('/bikes', bikeMiddleware, postBikes);
 bikesRouter.put('/bikes/:id', bikeMiddleware, putBikes);
 
 export default bikesRouter;

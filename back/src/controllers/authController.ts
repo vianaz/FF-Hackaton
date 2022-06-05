@@ -24,34 +24,39 @@ export async function signIn(req: Request, res: Response) {
       ]);
 
       res.send({ id: userDatas.id, token: tokenGen });
-      return
+      return;
     }
     res.sendStatus(400);
-    return
+    return;
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
-    return
+    return;
   }
 }
 export async function signUp(req: Request, res: Response) {
-  const { email, password, city, street, zipCode, complement, name } = req.body;
+  const { email, password, phone, city, street, zipCode, complement, name } =
+    req.body;
   const passwordHash = bcrypt.hashSync(password, 10);
   try {
     const responseUserData = await db.query(
-      `INSERT INTO "users" (name, email, password) VALUES ($1, $2, $3) RETURNING id`,
-      [name, email, passwordHash],
+      `INSERT INTO "users" (name, phone, email, password) VALUES ($1, $2, $3, $4) RETURNING id`,
+      [name, phone, email, passwordHash],
     );
     const { id } = responseUserData.rows[0];
     await db.query(
-      `INSERT INTO "adresses" ("userId", city, street, "zipCode", complement) VALUES ($1, $2, $3, $4, $5)`,
+      `INSERT INTO "adresses" ("userId", city, adress, "postalCode", complement) VALUES ($1, $2, $3, $4, $5)`,
       [id, city, street, zipCode, complement],
     );
-    res.status(201).send('');
-    return
+    await db.query(`INSERT INTO wallet ("userId", "value") VALUES ($1, $2)`, [
+      id,
+      250,
+    ]);
+    res.sendStatus(201);
+    return;
   } catch (error) {
     console.log(error);
-    res.status(400).send('');
-    return
+    res.sendStatus(400);
+    return;
   }
 }
