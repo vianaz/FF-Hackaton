@@ -1,14 +1,41 @@
 import styled from 'styled-components';
 
 import PostContainer from '../../components/feedComponents/postContainer';
+import Header from "../../components/Header";
+
+import axios from "axios";
+import { useEffect, useState } from 'react';
+import FeedFooter from '../../components/feedComponents/feedFooter';
+
+const feedsObj = [
+  {
+    username: "Afonso",
+    time: "12/02/2022",
+    message: "Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...",
+  },
+  {
+    username: "Afonso",
+    time: "12/02/2022",
+    message: "Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...",
+  }
+];
+
+
 
 export default function Feed() {
-  const arrayTeste = [1,2,3,4,5]
+  const [feeds, setFeeds]  = useState(feedsObj);
+  const [message, setMessage] = useState("");
+
+  useEffect(()=> {
+
+  },[setFeeds])
   return (
     <Main>
-      {arrayTeste.map((element, i) => {
-        return <PostContainer key={i} />;
+      <Header/>
+      {feeds.map((feed, i) => {
+        return <PostContainer key={i} {...feed} />;
       })}
+      <FeedFooter message={message} setMessage={setMessage}/>
     </Main>
   );
 }
@@ -20,5 +47,6 @@ const Main = styled.main`
   min-width: 100vw;
   min-height: 100vh;
   padding: 35px;
-  background-color: #329752;
+  margin-top: 74px;
+  background-color: var(--green);
 `;
