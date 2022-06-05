@@ -3,8 +3,10 @@ import { useState } from "react";
 import Input from "../shared/Input";
 import Button from "../shared/Button";
 import axios from "axios";
+import {useRouter} from "next/router";
 
 export default function FormSignUp(){
+    const router = useRouter();
     const [userData,setUserData] = useState({
         name:"",
         email:"",
@@ -20,8 +22,10 @@ export default function FormSignUp(){
 
     function submitData(event){
         event.preventDefault();
+        console.log(userData);
         const SIGNUP_POST_URL = "https://bicare-hackathon.herokuapp.com/sign-up";
         const promise = axios.post(SIGNUP_POST_URL,{
+            name,
             email,
             password,
             street,
@@ -31,8 +35,7 @@ export default function FormSignUp(){
         });
         promise
             .then(response=>{
-                const {data}=response;
-                console.log(data);
+                router.push("/login");
             })
             .catch(err=>{
                 alert("entrou no catch")
@@ -99,7 +102,7 @@ export default function FormSignUp(){
                     autoComplete="on"
                 />
                 <Input
-                    type="number"
+                    type="text"
                     placeholder="CEP"
                     value={zipCode}
                     onChange={e=>setUserData({...userData,zipCode:e.target.value})}

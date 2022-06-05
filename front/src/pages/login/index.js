@@ -3,7 +3,7 @@ import LinkSignUp from "../../components/loginComponents/LinkSignUp";
 import styled from "styled-components";
 import FormLogin from "../../components/loginComponents/FormLogin";
 
-export default function Home() {
+export default function Login() {
     return(
         <Container>
             <Logo />
@@ -22,5 +22,4 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 `;
