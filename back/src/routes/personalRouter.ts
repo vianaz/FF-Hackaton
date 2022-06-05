@@ -5,6 +5,6 @@ import { getPersonalInfo } from '../controllers/personalController.js';
 const personalRouter = Router();
 
 personalRouter.get('/personal/:id', getPersonalInfo);
-personalRouter.post('/personal/:id');
+personalRouter.put('/personal/:id');
 
 export default personalRouter;

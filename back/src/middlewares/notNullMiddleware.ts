@@ -5,5 +5,6 @@ export default function verifyBody(req: Request, res: Response, next) {
     res.sendStatus(400);
     return;
   }
+  req.id = 1;
   next();
 }

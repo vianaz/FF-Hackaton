@@ -6,6 +6,8 @@ import { v4 as uuid } from 'uuid';
 import db from '../db.js';
 
 export async function signIn(req: Request, res: Response) {
+  console.log(req.id);
+
   const { email, password } = req.body;
   try {
     const responseUser = await db.query(

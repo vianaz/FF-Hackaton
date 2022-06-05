@@ -13,6 +13,7 @@ import { v4 as uuid } from 'uuid';
 import db from '../db.js';
 export function signIn(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log(req.id);
         const { email, password } = req.body;
         try {
             const responseUser = yield db.query(`SELECT * FROM users WHERE email = $1`, [email]);

@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import authRouter from './routes/authRouter.js';
 import personalRouter from './routes/personalRouter.js';
+import bikesRouter from './routes/bikeRouter.js';
 
 dotenv.config();
 
@@ -12,5 +13,6 @@ app.use(json());
 app.use(cors());
 app.use(authRouter);
 app.use(personalRouter);
+app.use(bikesRouter);
 
 export default app;
