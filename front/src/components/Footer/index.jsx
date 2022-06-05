@@ -10,7 +10,7 @@ import { Container, StyledLink } from './styles';
 export default function Footer() {
   return (
     <Container>
-      <Link href="/bike">
+      <Link href="/bikes">
         <StyledLink>
           <MdDirectionsBike fontSize="40px" color="#fff" />
           <span>Minha bike</span>
