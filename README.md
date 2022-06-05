@@ -46,3 +46,9 @@ and you can see the status of your signature and some cool stuff like that!
 [Foto da página do perfil]
 
 We hope you enjoy BiCare as much as we do! 🤩 Thank you very much for your attention 😍
+
+## About us
+
+BiCare was created as our project during the FFHacka Hackaton hosted by FairFax. It was developed in the breaf
+interval of only two days - so, of course it's not the final version yet. Yet, it's already very useful in your
+daily life!
