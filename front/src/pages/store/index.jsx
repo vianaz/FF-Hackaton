@@ -10,14 +10,16 @@ export default function Mechanical() {
 
     useEffect(() => {
         axios.get('https://bicare-hackathon.herokuapp.com/stories')
-            .then( (answer) => setMechanicalsList([...answer]))
+            .then( (answer) => {
+                setStoresList(answer.data);
+            })
             .catch( (e) => console.log(e));
     }, []);
 
     return (
         <Main>
             <Topping name={'Lojas'} />
-            <StoreContainer />
+            {storesList.map( (mechanic, i) => <StoreContainer key={i} name={mechanic.name} description={mechanic.description} close={mechanic.close} open={mechanic.open} />)}
         </Main>
     )
 }
@@ -32,4 +34,6 @@ const Main = styled.main`
   min-height: 100vh;
   padding: 35px;
   background-color: #212535;
+
+  margin-top: 70px;
 `;

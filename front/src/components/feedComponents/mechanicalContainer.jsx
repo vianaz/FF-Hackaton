@@ -4,11 +4,15 @@ export default function MechanicalContainer({ name, description, close, open }) 
     return (
         <MechanicalCard>
             <UpperSide>
-                <Name>AF</Name>
-                <MechanicInfo>
-                    <MechanicName>{name}</MechanicName>
-                    <Time>Fecha: {close}</Time>
-                </MechanicInfo>
+                <div style={{display: "flex", justifyContent: "center"}}>
+                    <Name>AF</Name>
+                    <MechanicInfo>
+                        <MechanicName>{name}</MechanicName>
+                        <Time>Fecha: {close}</Time>
+                    </MechanicInfo>
+                </div>
+
+                <Open>Aberto</Open>
             </UpperSide>
 
             <Contact>Contatar mecânico</Contact>
@@ -20,6 +24,19 @@ export default function MechanicalContainer({ name, description, close, open }) 
         </MechanicalCard>
     )
 }
+
+const Open = styled.div`
+    background-color: #009651;
+    border-radius: 10px;
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    color: white;
+    font-weight: bold;
+`
 
 const Time = styled.div`
     color: #212535;
@@ -59,6 +76,7 @@ const Contact = styled.button`
     border-radius: 12px;
     color: white;
     font-size: 12px;
+    margin-bottom: 10px;
 `
 
 const MechanicalCard = styled.div`
@@ -82,7 +100,7 @@ const UpperSide = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 `
 
 const Description = styled.div`
