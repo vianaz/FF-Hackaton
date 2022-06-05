@@ -12,8 +12,12 @@ import {
   Form,
   InputLabel,
   Input,
-  SubmitButton,
+  Status,
   Services,
+  UpperText,
+  BottomText,
+  UpperContent,
+  BottomContent
 } from './home';
 
 export default function Home() {
@@ -25,29 +29,38 @@ export default function Home() {
     <Container>
       <Header />
       <Content>
-        <Heading>Encontre os melhores serviços para sua bike</Heading>
 
         <Form>
           <InputLabel>
-            <FiMapPin color="#fff" />
-            <Input name="cidade" icon="" placeholder="Cidade" />
-          </InputLabel>
-          <InputLabel>
-            <FiSearch color="#fff" />
             <Input name="serviço" icon="" placeholder="Serviço" />
+            <FiSearch onClick={handleSubmitForm} color="#808080" />
           </InputLabel>
-          <SubmitButton onClick={handleSubmitForm}>Pesquisar</SubmitButton>
         </Form>
 
-        <Heading>Serviços</Heading>
+        <Heading>STATUS</Heading>
+
+        <Status>
+          <BottomContent>
+            <UpperContent>
+              <UpperText>KMs</UpperText>
+              <UpperText>Saldo</UpperText>
+              <UpperText>Bike</UpperText>
+            </UpperContent>
+
+            <BottomText></BottomText>
+            <BottomText></BottomText>
+            <BottomText></BottomText>
+          </BottomContent>
+        </Status>
 
         <Services>
-          <Service type="mecanico" />
+          <Service type="gps" />
           <Service type="lojas" />
-          <Service type="bicicletario" />
-          <Service type="mecanico" />
-          <Service type="lojas" />
+          <Service type="seguros" />
+          <Service type="mecânico" />
         </Services>
+
+        <Image src='/../public/Frame.png' alt='' width={322} height={115} />
       </Content>
 
       <Footer />
