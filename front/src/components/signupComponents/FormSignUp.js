@@ -17,8 +17,7 @@ export default function FormSignUp(){
         zipCode:"",
     });
 
-    const {name, email, password, street, city, complement, zipCode} = userData;
-
+    const { name, email, password, street, city, complement, zipCode } = userData;
 
     function submitData(event){
         event.preventDefault();
@@ -118,12 +117,9 @@ export default function FormSignUp(){
 }
 
 const Container = styled.div`
-    
-    div{
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
-
-
