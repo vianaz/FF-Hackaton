@@ -1,6 +1,4 @@
-import { de } from 'date-fns/locale';
 import { Request, Response } from 'express';
-import joi from 'joi';
 import db from '../db.js';
 
 export async function getBikeInfo(req: Request, res: Response) {
@@ -29,7 +27,7 @@ export async function postBikes(req: Request, res: Response) {
 export async function putBikes(req: Request, res: Response) {
   const { userId, image, distance } = req.body;
   try {
-    await db.query(`UPDATE image = $1, distance = $2 WHERE userId = $3`, [
+    await db.query(`UPDATE bikes SET image = $1, distance = $2 WHERE userId = $3`, [
       image,
       distance,
       userId,

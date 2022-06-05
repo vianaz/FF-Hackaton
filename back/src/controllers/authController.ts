@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import joi from 'joi';
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 
@@ -36,23 +35,7 @@ export async function signIn(req: Request, res: Response) {
 }
 export async function signUp(req: Request, res: Response) {
   const { email, password, city, street, zipCode, complement, name } = req.body;
-  console.log(req.body);
   const passwordHash = bcrypt.hashSync(password, 10);
-  const signUpSchema = joi.object({
-    email: joi.string().email().required(),
-    password: joi.string().min(1).required(),
-    name: joi.string().required(),
-    city: joi.string().required(),
-    street: joi.string().required(),
-    zipCode: joi.string().required(),
-    complement: joi.string(),
-  });
-  const { error } = signUpSchema.validate(req.body);
-  if (error) {
-    console.log(error);
-    res.sendStatus(400);
-    return;
-  }
   try {
     const responseUserData = await db.query(
       `INSERT INTO "users" (name, email, password) VALUES ($1, $2, $3) RETURNING id`,

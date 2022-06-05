@@ -37,3 +37,16 @@ export function getPersonalInfo(req, res) {
         }
     });
 }
+export function putPersonalInfo(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { id } = req.params;
+        const { email, password, city, street, zipCode, complement, name } = req.body;
+        try {
+            yield db.query(`UPDATE users SET `);
+        }
+        catch (error) {
+            console.log(error);
+            res.sendStatus(400);
+        }
+    });
+}

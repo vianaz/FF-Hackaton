@@ -35,7 +35,7 @@ export function putBikes(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const { userId, image, distance } = req.body;
         try {
-            yield db.query(`UPDATE image = $1, distance = $2 WHERE userId = $3`, [
+            yield db.query(`UPDATE bikes SET image = $1, distance = $2 WHERE userId = $3`, [
                 image,
                 distance,
                 userId,

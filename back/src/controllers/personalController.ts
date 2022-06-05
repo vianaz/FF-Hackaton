@@ -30,3 +30,14 @@ export async function getPersonalInfo(req: Request, res: Response) {
     res.sendStatus(400);
   }
 }
+
+export async function putPersonalInfo(req: Request, res: Response) {
+  const { id } = req.params;
+  const { email, password, city, street, zipCode, complement, name } = req.body;
+  try {
+    await db.query(`UPDATE users SET `);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+}
