@@ -17,4 +17,14 @@ export const Container = styled.footer`
   justify-content: space-between;
 
   background-color: #232435;
+  color: #fff;
+`;
+
+export const StyledLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
 `;

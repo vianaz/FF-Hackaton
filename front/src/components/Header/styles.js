@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  background-color: beige;
+  background-color: #fff;
   width: 100%;
   padding: 1rem;
 
@@ -17,7 +17,7 @@ export const Container = styled.header`
 `;
 
 export const LogoTitle = styled.h1`
-  font-size: 2rem;
+  font-size: 1.5rem;
 `;
 
 export const Profile = styled.div`

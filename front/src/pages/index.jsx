@@ -11,10 +11,15 @@ import {
   Form,
   InputLabel,
   Input,
+  SubmitButton,
   Services,
 } from './home';
 
 export default function Home() {
+  function handleSubmitForm(event) {
+    event.preventDefault();
+  }
+
   return (
     <Container>
       <Header />
@@ -24,13 +29,14 @@ export default function Home() {
 
         <Form>
           <InputLabel>
-            <FiMapPin />
+            <FiMapPin color="#fff" />
             <Input name="cidade" icon="" placeholder="Cidade" />
           </InputLabel>
           <InputLabel>
-            <FiSearch />
+            <FiSearch color="#fff" />
             <Input name="serviço" icon="" placeholder="Serviço" />
           </InputLabel>
+          <SubmitButton onClick={handleSubmitForm}>Pesquisar</SubmitButton>
         </Form>
 
         <Heading>Serviços</Heading>

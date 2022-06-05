@@ -1,4 +1,4 @@
-import { Container } from './styles';
+import { Container, Footer } from './styles';
 
 export default function Service({ type }) {
   return (
@@ -13,7 +13,10 @@ export default function Service({ type }) {
           src="https://institutouniversal.vteximg.com.br/arquivos/ids/157052-1000-1000/image_mecanica_bicicleta.jpg?v=635368949412000000"
           alt="mecanico"
         />
-        <h2>{type}</h2>
+
+        <Footer>
+          <h3>{type}</h3>
+        </Footer>
       </a>
     </Container>
   );
