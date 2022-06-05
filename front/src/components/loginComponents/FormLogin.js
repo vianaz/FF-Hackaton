@@ -29,7 +29,7 @@ export default function FormLogin() {
                 } = response;
                 const objUserData = [id, token];
                 localStorage.setItem("userData", JSON.stringify(objUserData));
-                router.push("/home");
+                router.push("/");
             })
             .catch(err => {
                 alert("As informações de e-mail e/ou senha estão incorretas. Insira os dados novamente ou faça o cadastro!");

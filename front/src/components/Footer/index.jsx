@@ -13,7 +13,7 @@ export default function Footer() {
           <span>Minha bike</span>
         </StyledLink>
       </Link>
-      <Link href="/bike">
+      <Link href="/feed">
         <StyledLink>
           <HiUserGroup fontSize="40px" color="#fff" />
           <span>Comunidade</span>
