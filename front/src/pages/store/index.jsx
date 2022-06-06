@@ -34,7 +34,7 @@ export default function Mechanical() {
         <BallTriangle
           heigth='100'
           width='100'
-          color='grey'
+          color='white'
           ariaLabel='loading-indicator'
         />
       )}
