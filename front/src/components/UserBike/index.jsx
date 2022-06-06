@@ -1,6 +1,12 @@
 import Maintenance from '../Maintenance';
 
-import { Container, LastMaintenance, BikeName, Distance } from './styles';
+import {
+  Container,
+  LastMaintenance,
+  LastServices,
+  BikeName,
+  Distance,
+} from './styles';
 
 export default function UserBike({ name, image, distance }) {
   return (
@@ -14,7 +20,7 @@ export default function UserBike({ name, image, distance }) {
       </Distance>
 
       <LastMaintenance>
-        <span>Últimos serviços</span>
+        <LastServices>Últimos serviços</LastServices>
         <Maintenance />
         <Maintenance />
       </LastMaintenance>

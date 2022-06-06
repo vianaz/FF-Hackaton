@@ -44,9 +44,20 @@ export const LastMaintenance = styled.div`
   justify-content: center;
   align-items: flex-start;
 
-  border-radius: 5px;
-  border: 1px solid black;
+  border-radius: 1rem;
   padding: 0.5rem;
 
   gap: 0.5rem;
+
+  background-color: #fff;
+`;
+
+export const LastServices = styled.span`
+  background-color: #000;
+  color: #fff;
+
+  border-radius: 1rem;
+  padding: 0.75rem 0.5rem;
+
+  font-size: 0.85rem;
 `;

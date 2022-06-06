@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
 
   position: relative;
+  background-color: #e6e6e6;
 `;
 
 export const Content = styled.section`
