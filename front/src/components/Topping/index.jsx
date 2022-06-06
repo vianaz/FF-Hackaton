@@ -1,19 +1,25 @@
 import Link from 'next/link';
-import { Profile } from '../Header/styles';
 import { AiOutlineLeftCircle } from 'react-icons/ai';
-
+import { useState } from 'react';
 import styled from 'styled-components';
+import  {Profile}  from '../Header/styles';
+import PersonalInfo from '../../pages/personal';
 
 export default function Topping({ name, fixed }) {
+  const [visible,setVisible]=useState(false);
   return (
     <Container fixed={fixed}>
       <Link href='/home'>
         <AiOutlineLeftCircle fontSize={35} />
       </Link>
       <span>{name}</span>
-      <Link href='/personal'>
-        <Profile />
-      </Link>
+      <Profile onClick={()=>setVisible(!visible)}>
+      {visible?
+          <PersonalInfo />
+          :
+          <></>  
+        }
+      </Profile>
     </Container>
   );
 }

@@ -18,5 +18,9 @@ const Main = styled.main`
   padding: 35px 0px;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: #4F4F4F;
+  background-color: #4f4f4f3b;
+  position:fixed;
+  right:0;
+  top:0;
+  z-index:7;
 `;

@@ -1,13 +1,23 @@
 import { Container, LogoTitle, Profile } from './styles';
-import Link from 'next/link';
+import { useState } from 'react';
+import PersonalInfo from '../../pages/personal';
 
 export default function Header() {
+  const [visible,setVisible]=useState(false);
+
   return (
     <Container>
       <LogoTitle>BiCare</LogoTitle>
-      <Link href='/personal'>
-        <Profile />
-      </Link>
+      <Profile onClick={()=>setVisible(!visible)}>
+      {visible?
+          <PersonalInfo />
+          :
+          <></>  
+        }
+      </Profile>
+      
     </Container>
   );
 }
+
+
