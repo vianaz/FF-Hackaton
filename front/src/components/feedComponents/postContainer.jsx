@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
-export default function PostContainer({ username, time, message }) {
+export default function PostContainer({ name, menssage }) {
   return (
     <Container>
       <Header>
         <Avatar>AF</Avatar>
         <PostInfo>
-          <p>{username}</p>
-          <span>{time}</span>
+          <p>{name}</p>
         </PostInfo>
       </Header>
       <Body>
-        <p>{message}</p>
+        <p>{menssage}</p>
       </Body>
     </Container>
   );
@@ -41,7 +40,7 @@ const Avatar = styled.div`
   border-radius: 50%;
   background-color: var(--blue);
   font-weight: 500;
-  color: white
+  color: white;
 `;
 
 const Container = styled.div`
