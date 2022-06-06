@@ -1,21 +1,21 @@
-import Link from "next/link"
-import { Profile } from "../Header/styles"
+import Link from 'next/link';
+import { Profile } from '../Header/styles';
 import { AiOutlineLeftCircle } from 'react-icons/ai';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export default function Topping( {name} ) {
-    return (
-        <Container>
-            <Link href="/">
-                <AiOutlineLeftCircle fontSize={30} />
-            </Link>
-            {name}
-            <Link href='/personal'>
-                <Profile />
-            </Link>
-        </Container>
-    )
+export default function Topping({ name }) {
+  return (
+    <Container>
+      <Link href='/home'>
+        <AiOutlineLeftCircle fontSize={35} />
+      </Link>
+      <span>{name}</span>
+      <Link href='/personal'>
+        <Profile />
+      </Link>
+    </Container>
+  );
 }
 
 const Container = styled.header`
@@ -36,6 +36,11 @@ const Container = styled.header`
   right: 0;
   z-index: 5;
 
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-family: 'Roboto';
+
+  span {
+    font-size: 36px;
+  }
 `;

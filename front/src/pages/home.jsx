@@ -18,7 +18,7 @@ import {
   BottomText,
   UpperContent,
   BottomContent
-} from './home';
+} from './home1';
 
 export default function Home() {
   function handleSubmitForm(event) {
@@ -31,10 +31,6 @@ export default function Home() {
       <Content>
 
         <Form>
-          <InputLabel>
-            <Input name="serviço" icon="" placeholder="Serviço" />
-            <FiSearch onClick={handleSubmitForm} color="#808080" />
-          </InputLabel>
         </Form>
 
         <Heading>STATUS</Heading>

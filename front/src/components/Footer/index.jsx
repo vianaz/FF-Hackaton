@@ -44,4 +44,7 @@ const BikeBall = styled.div`
 
   border-radius: 50%;
   margin-bottom: 50px;
+  span {
+    
+  }
 `

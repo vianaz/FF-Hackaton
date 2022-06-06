@@ -23,6 +23,7 @@ const PostInfo = styled.div`
   p {
     font-weight: bold;
     font-size: 19px;
+    line-height: 2em;
   }
 
   span {
