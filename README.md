@@ -1,13 +1,9 @@
 # 🚴 BiCare
 
-BiCare is an application designed to help you keep your health on track by being capable of maintaining
+BiCare is an application designed to help you find new friends, keep your health on track by being capable of maintaining
 you bike in the most optimous usage conditions.
 
-It is a signature service in which we grant you the access to the best bike parking lots, showing how
-many free spots there are for your bike, therefore granting the best of practicity for your life. 
-
-We also grant you the opportunity to order a maintenance service for your bike - with NO extra costs! -
-so that it is always up to date.
+We also grant you the opportunity to order a maintenance service for your bike so that it is always up to date.
 
 ## 🤔 How's it work?
 
