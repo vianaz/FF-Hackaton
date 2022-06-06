@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
+import Topping from '../../components/Topping';
 import UserBike from '../../components/UserBike';
 
 import { Container, Content, Button, FormModal, Input } from './styles';
@@ -57,6 +58,8 @@ export default function Bikes() {
 
   return (
     <Container>
+      <Topping name="Minhas Bikes" />
+
       <Content>
         {bikes?.length === 0 ? (
           <p>Você ainda não cadastrou nenhuma bike</p>
