@@ -7,11 +7,11 @@ import styled from 'styled-components';
 export default function Topping({ name }) {
   return (
     <Container>
-      <Link href="/">
-        <AiOutlineLeftCircle fontSize={30} />
+      <Link href='/home'>
+        <AiOutlineLeftCircle fontSize={35} />
       </Link>
-      {name}
-      <Link href="/personal">
+      <span>{name}</span>
+      <Link href='/personal'>
         <Profile />
       </Link>
     </Container>
@@ -36,6 +36,16 @@ const Container = styled.header`
   right: 0;
   z-index: 5;
 
+<<<<<<< HEAD
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-family: 'Roboto';
+
+  span {
+    font-size: 36px;
+  }
+=======
   font-weight: bold;
   font-size: 20px;
+>>>>>>> 2259aa24b2c8cc4ce2aab61fa6b3a30cd17b8dfe
 `;

@@ -27,7 +27,7 @@ export default function FormLogin() {
         const {data} =response;
         const id = data.id;
         localStorage.setItem("id",id);
-        router.push('/');
+        router.push('/home');
       })
       .catch((err) => {
         alert(

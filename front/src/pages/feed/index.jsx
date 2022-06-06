@@ -1,41 +1,39 @@
 import styled from 'styled-components';
 
 import PostContainer from '../../components/feedComponents/postContainer';
-import Header from "../../components/Header";
+import Topping from '../../components/Topping';
 
-import axios from "axios";
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import FeedFooter from '../../components/feedComponents/feedFooter';
 
 const feedsObj = [
   {
-    username: "Afonso",
-    time: "12/02/2022",
-    message: "Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...",
+    username: 'Afonso',
+    time: '12/02/2022',
+    message:
+      'Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...',
   },
   {
-    username: "Afonso",
-    time: "12/02/2022",
-    message: "Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...",
-  }
+    username: 'Afonso',
+    time: '12/02/2022',
+    message:
+      'Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...',
+  },
 ];
 
-
-
 export default function Feed() {
-  const [feeds, setFeeds]  = useState(feedsObj);
-  const [message, setMessage] = useState("");
+  const [feeds, setFeeds] = useState(feedsObj);
+  const [message, setMessage] = useState('');
 
-  useEffect(()=> {
-
-  },[setFeeds])
+  useEffect(() => {}, [setFeeds]);
   return (
     <Main>
-      <Header/>
+      <Topping name={'Feed'} />
       {feeds.map((feed, i) => {
         return <PostContainer key={i} {...feed} />;
       })}
-      <FeedFooter message={message} setMessage={setMessage}/>
+      <FeedFooter message={message} setMessage={setMessage} />
     </Main>
   );
 }

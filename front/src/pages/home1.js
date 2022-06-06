@@ -3,9 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
-
   background-color: #F2F2F2;
   padding-bottom: calc(75px + 25px);
+  font-family: 'Roboto';
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  margin-top: 60px;
 `;
 
 export const Content = styled.section`
@@ -106,7 +109,6 @@ export const UpperText = styled.div`
 
   color: white;
   font-size: 14px;
-
   display: flex;
   align-items: center;
   justify-content: center;

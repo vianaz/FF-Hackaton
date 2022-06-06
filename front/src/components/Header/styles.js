@@ -16,6 +16,8 @@ export const Container = styled.header`
   left: 0;
   right: 0;
   z-index: 5;
+
+  font-family: 'Roboto';
 `;
 
 export const LogoTitle = styled.h1`
@@ -23,10 +25,9 @@ export const LogoTitle = styled.h1`
 `;
 
 export const Profile = styled.div`
-  width: 52px;
-  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
   border-radius: 50%;
   background-color: aquamarine;
-
   cursor: pointer;
 `;

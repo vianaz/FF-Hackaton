@@ -8,24 +8,33 @@ import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 
 export default function Service({ type }) {
-
   function getIcon() {
     switch (type) {
-      case 'mecânico': return (<GoGear fontSize='65px' />);
-      case 'seguros': return (<RiShieldCheckLine fontSize='65px' />);
-      case 'gps': return (<HiOutlineLocationMarker fontSize='65px' />);
-      case 'lojas': return (<HiOutlineShoppingBag fontSize='65px' />);
-      default: console.log('ue');
+      case 'mecânico':
+        return <GoGear fontSize='65px' />;
+      case 'seguros':
+        return <RiShieldCheckLine fontSize='65px' />;
+      case 'gps':
+        return <HiOutlineLocationMarker fontSize='65px' />;
+      case 'lojas':
+        return <HiOutlineShoppingBag fontSize='65px' />;
+      default:
+        console.log('ue');
     }
   }
 
   function getLink() {
     switch (type) {
-      case 'mecânico': return '/mechanical';
-      case 'seguros': return '/warranty';
-      case 'gps': return '/gps';
-      case 'lojas': return '/store';
-      default: console.log('ue');
+      case 'mecânico':
+        return '/mechanical';
+      case 'seguros':
+        return '/warranty';
+      case 'gps':
+        return '/gps';
+      case 'lojas':
+        return '/store';
+      default:
+        console.log('ue');
     }
   }
 
@@ -36,7 +45,6 @@ export default function Service({ type }) {
           <span>{type.toUpperCase()}</span>
 
           {getIcon()}
-
         </Button>
       </Link>
     </StyledLink>
@@ -47,7 +55,8 @@ const Button = styled.div`
   width: 130px;
   height: 146px;
   border-radius: 10px;
-  background-color: ${props => props.type === 'gps' ? "#DEDEDE" : "#232435"};
+  background-color: ${(props) =>
+    props.type === 'gps' ? '#DEDEDE' : '#232435'};
 
   display: flex;
   flex-direction: column;
@@ -56,7 +65,14 @@ const Button = styled.div`
 
   color: white;
   font-size: 16px;
-`
+
+  span {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+  }
+`;
 
 const StyledLink = styled.div`
   display: flex;
