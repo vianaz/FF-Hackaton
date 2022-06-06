@@ -1,7 +1,6 @@
 import { Container, LogoTitle, Profile } from './styles';
 import { useState } from 'react';
 import PersonalInfo from '../../pages/personal';
-import { Container, Profile } from './styles';
 import Image from 'next/image';
 
 export default function Header() {
