@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import Topping from '../../components/Topping';
 import UserBike from '../../components/UserBike';
 
-import { Container, Content, Button, FormModal, Input } from './styles';
+import { Container, Content, Button, FormModal, Input } from '../../components/styles';
 
 export default function Bikes() {
   const [bikes, setBikes] = useState([]);
