@@ -17,8 +17,8 @@ import {
   UpperText,
   BottomText,
   UpperContent,
-  BottomContent
-} from './home1';
+  BottomContent,
+} from '../components/home1';
 
 export default function Home() {
   function handleSubmitForm(event) {
@@ -29,7 +29,6 @@ export default function Home() {
     <Container>
       <Header />
       <Content>
-
         <Heading>STATUS</Heading>
 
         <Status>
@@ -47,10 +46,10 @@ export default function Home() {
         </Status>
 
         <Services>
-          <Service type="gps" />
-          <Service type="lojas" />
-          <Service type="seguros" />
-          <Service type="mecânico" />
+          <Service type='gps' />
+          <Service type='lojas' />
+          <Service type='seguros' />
+          <Service type='mecânico' />
         </Services>
 
         <Image src='/../public/Frame.png' alt='' width={322} height={115} />
