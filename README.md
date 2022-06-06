@@ -48,3 +48,10 @@ We hope you enjoy BiCare as much as we do! 🤩 Thank you very much for your att
 BiCare was created as our project during the FFHacka Hackaton hosted by FairFax. It was developed in the breaf
 interval of only two days - so, of course it's not the final version yet. Yet, it's already very useful in your
 daily life!
+
+### Authors list:
+- Adnan Bezerra
+- André Tashiro
+- Afonso Cardozo
+- Dayane Carolina
+- Gabriel Viana
