@@ -9,5 +9,16 @@ export const Container = styled.div`
   align-items: flex-start;
   text-align: start;
 
-  border: 1px solid black;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+
+  border-radius: 1rem;
+
+  background-color: #e6e6e6;
+
+  span {
+    & + span {
+      margin-top: 0.5rem;
+    }
+  }
 `;
