@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export default function StoreContainer({ name, description, close, open }) {
   return (
@@ -15,7 +16,13 @@ export default function StoreContainer({ name, description, close, open }) {
         <Open>Aberta</Open>
       </UpperSide>
 
-      <Contact>Contatar loja</Contact>
+      <Link
+        href='https://api.whatsapp.com/send?phone=98999045564&text=Quero%20saber%20o%20valor'
+        passHref>
+        <a target='_blank'>
+          <Contact>Contatar Loja</Contact>
+        </a>
+      </Link>
       <BottomSide>
         <Description>{description}</Description>
       </BottomSide>

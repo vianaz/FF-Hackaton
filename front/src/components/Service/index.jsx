@@ -40,12 +40,20 @@ export default function Service({ type }) {
 
   return (
     <StyledLink>
-      <Link href={getLink()}>
-        <Button type={type}>
-          <span>{type.toUpperCase()}</span>
-
-          {getIcon()}
-        </Button>
+      <Link href={getLink()} passHref>
+        {type === 'seguros' ? (
+          <a target='_blank'>
+            <Button type={type}>
+              <span>{type.toUpperCase()}</span>
+              {getIcon()}
+            </Button>
+          </a>
+        ) : (
+          <Button type={type}>
+            <span>{type.toUpperCase()}</span>
+            {getIcon()}
+          </Button>
+        )}
       </Link>
     </StyledLink>
   );

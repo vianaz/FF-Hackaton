@@ -105,13 +105,12 @@ function formatZipCode(str){
 
 const Infos = styled.div`
   display: flex;
-  width:90vw;
+  max-width:95vw;
   height:80vh;
   height:fit-content;
   flex-direction: column;
   justify-content: space-between;
   align-items:center;
-  width:94vw;
   min-height: 350px;
   background-color: white;
   border-radius:20px;

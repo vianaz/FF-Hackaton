@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export default function MechanicalContainer({
   name,
@@ -20,7 +21,11 @@ export default function MechanicalContainer({
         <Open>Aberto</Open>
       </UpperSide>
 
-      <Contact>Contatar mecânico</Contact>
+      <Link href='https://api.whatsapp.com/send?phone=98999045564&text=Quero%20saber%20o%20valor' passHref>
+        <a target="_blank">
+          <Contact>Contatar mecânico</Contact>
+        </a>
+      </Link>
       <BottomSide>
         <Description>{description}</Description>
       </BottomSide>

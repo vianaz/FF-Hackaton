@@ -1,9 +1,11 @@
 import { FiMapPin, FiSearch } from 'react-icons/fi';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Service from '../components/Service';
+import Map from '../../public/Frame.png';
 
 import {
   Container,
@@ -52,7 +54,11 @@ export default function Home() {
           <Service type='mecânico' />
         </Services>
 
-        <Image src='/../public/Frame.png' alt='' width={322} height={115} />
+        <Link href='https://www.google.com/maps' passHref>
+          <a target='_blank'>
+            <Image src={Map} alt='' width={322} height={115} />
+          </a>
+        </Link>
       </Content>
 
       <Footer />
