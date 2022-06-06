@@ -76,7 +76,7 @@ const Name = styled.div`
 const Contact = styled.button`
   background-color: #212535;
   height: 30px;
-  width: 90px;
+  min-width: 90px;
 
   border: 0;
   border-radius: 12px;
@@ -84,11 +84,13 @@ const Contact = styled.button`
   font-size: 12px;
   margin-bottom: 10px;
   font-family: 'Roboto';
+  padding: 8px;
 `;
 
 const MechanicalCard = styled.div`
-  min-width: 320px;
+  min-width: 95%;
   min-height: 210px;
+  max-width: 95%;
   background-color: white;
   margin-top: 30px;
 

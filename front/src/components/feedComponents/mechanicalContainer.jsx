@@ -93,8 +93,9 @@ const Contact = styled.button`
 `;
 
 const MechanicalCard = styled.div`
-  min-width: 320px;
+  min-width: 95%;
   min-height: 210px;
+  max-width: 95%;
   background-color: white;
   margin-top: 30px;
 

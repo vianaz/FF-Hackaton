@@ -43,7 +43,7 @@ const Footer = styled.footer`
     height: 74px;
     padding: 16px;
     background-color: var(--blue);
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     z-index: 1;

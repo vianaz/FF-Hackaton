@@ -8,7 +8,6 @@ export const Container = styled.div`
   font-family: 'Roboto';
   line-height: 1em;
   letter-spacing: 0.1em;
-  margin-top: 60px;
 `;
 
 export const Content = styled.section`

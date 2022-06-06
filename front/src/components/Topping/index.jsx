@@ -4,9 +4,9 @@ import { AiOutlineLeftCircle } from 'react-icons/ai';
 
 import styled from 'styled-components';
 
-export default function Topping({ name }) {
+export default function Topping({ name, fixed }) {
   return (
-    <Container>
+    <Container fixed={fixed}>
       <Link href='/home'>
         <AiOutlineLeftCircle fontSize={35} />
       </Link>
@@ -30,13 +30,12 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  position: sticky;
+  position: ${props => props.fixed};
   top: 0;
   left: 0;
   right: 0;
   z-index: 5;
 
-<<<<<<< HEAD
   font-weight: 700;
   letter-spacing: 0.15em;
   font-family: 'Roboto';
@@ -44,8 +43,5 @@ const Container = styled.header`
   span {
     font-size: 36px;
   }
-=======
-  font-weight: bold;
-  font-size: 20px;
->>>>>>> 2259aa24b2c8cc4ce2aab61fa6b3a30cd17b8dfe
+  margin-bottom: 15px;
 `;

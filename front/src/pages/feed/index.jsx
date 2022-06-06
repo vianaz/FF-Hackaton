@@ -20,6 +20,18 @@ const feedsObj = [
     message:
       'Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...',
   },
+  {
+    username: 'Afonso',
+    time: '12/02/2022',
+    message:
+      'Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...',
+  },
+  {
+    username: 'Afonso',
+    time: '12/02/2022',
+    message:
+      'Olá pessoal, tudo bem com vocês? Sou novo aqui no app e gostaria de saber algo sobre...',
+  },
 ];
 
 export default function Feed() {
@@ -29,7 +41,7 @@ export default function Feed() {
   useEffect(() => {}, [setFeeds]);
   return (
     <Main>
-      <Topping name={'Feed'} />
+      <Topping name={'Feed'} fixed={feeds[0] ? 'sticky' : 'fixed'} />
       {feeds.map((feed, i) => {
         return <PostContainer key={i} {...feed} />;
       })}
@@ -44,7 +56,5 @@ const Main = styled.main`
   align-items: center;
   min-width: 100vw;
   min-height: 100vh;
-  padding: 35px;
-  margin-top: 74px;
   background-color: var(--green);
 `;

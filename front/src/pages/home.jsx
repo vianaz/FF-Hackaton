@@ -30,9 +30,6 @@ export default function Home() {
       <Header />
       <Content>
 
-        <Form>
-        </Form>
-
         <Heading>STATUS</Heading>
 
         <Status>

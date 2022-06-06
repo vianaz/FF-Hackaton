@@ -28,7 +28,7 @@ export default function Service({ type }) {
       case 'mecânico':
         return '/mechanical';
       case 'seguros':
-        return '/warranty';
+        return 'https://ffseguros.com.br/';
       case 'gps':
         return '/gps';
       case 'lojas':
@@ -70,7 +70,7 @@ const Button = styled.div`
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
   }
 `;
 

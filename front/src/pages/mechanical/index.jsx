@@ -1,28 +1,49 @@
-import MechanicalContainer from "../../components/feedComponents/mechanicalContainer";
-import styled from "styled-components";
-import Topping from "../../components/Topping";
-import { useEffect, useState } from "react";
-import axios from "axios";
-
+import MechanicalContainer from '../../components/feedComponents/mechanicalContainer';
+import styled from 'styled-components';
+import Topping from '../../components/Topping';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { BallTriangle } from 'react-loader-spinner';
 export default function Mechanical() {
+  const [mechanicsList, setMechanicsList] = useState([]);
 
-    const [mechanicsList, setMechanicsList] = useState([]);
+  useEffect(() => {
+    axios
+      .get('https://bicare-hackathon.herokuapp.com/mechanics')
+      .then((answer) => {
+        setMechanicsList(answer.data);
+        console.log(mechanicsList);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
-    useEffect(() => {
-        axios.get('https://bicare-hackathon.herokuapp.com/mechanics')
-            .then( (answer) => {
-                setMechanicsList(answer.data);
-                console.log(mechanicsList);
-            })
-            .catch( (e) => console.log(e));
-    }, []);
+  return (
+    <Main>
+      <Topping
+        name={'Mecânicos'}
+        fixed={mechanicsList[0] ? 'sticky' : 'fixed'}
+      />
 
-    return (
-        <Main>
-            <Topping name={'Mecânicos'} />
-            {mechanicsList.map( (mechanic, i) => <MechanicalContainer key={i} name={mechanic.name} description={mechanic.description} close={mechanic.close} open={mechanic.open} />)}
-        </Main>
-    )
+      {mechanicsList[0] ? (
+        mechanicsList.map((mechanic, i) => (
+          <MechanicalContainer
+            key={i}
+            name={mechanic.name}
+            description={mechanic.description}
+            close={mechanic.close}
+            open={mechanic.open}
+          />
+        ))
+      ) : (
+        <BallTriangle
+          heigth='100'
+          width='100'
+          color='grey'
+          ariaLabel='loading-indicator'
+        />
+      )}
+    </Main>
+  );
 }
 
 const Main = styled.main`
@@ -30,11 +51,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   min-width: 100vw;
   min-height: 100vh;
-  padding: 35px;
   background-color: #212535;
-
-  margin-top: 70px;
 `;
